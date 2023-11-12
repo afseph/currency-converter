@@ -33,6 +33,24 @@ class Converter(QtWidgets.QMainWindow, interface.Ui_MainWindow):
         self.ToCurr.completer().setCompletionMode(QtWidgets.QCompleter.PopupCompletion)
 
         self.ConvertButton.clicked.connect(self.convert_values)
+        self.ReverseCurr.clicked.connect(self.reverse_curr)
+
+
+    def reverse_curr(self):
+        """
+        Function that allows to switch currencies and redo calculation if field "ToAmount" not null
+        """
+        to_curr = self.ToCurr.currentText()
+        from_curr = self.FromCurr.currentText()
+        to_amount = self.ToAmount.text()
+        self.FromCurr.setCurrentText(to_curr)
+        self.ToCurr.setCurrentText(from_curr)
+        from_curr, to_curr = to_curr, from_curr
+        if to_amount != "":
+            if (res := convert(to_curr=to_curr,from_curr=from_curr,to_amount=to_amount,curr=self.curr)) != None:
+                self.Result.setText(str(res))
+            else:
+                self.error()
 
 
     def convert_values(self):

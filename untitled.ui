@@ -73,23 +73,17 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QPushButton" name="ReverseCurr">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>10</y>
-      <width>71</width>
-      <height>61</height>
+      <x>350</x>
+      <y>20</y>
+      <width>81</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap>arrow-sm-right-svgrepo-com.svg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
+     <string>↔</string>
     </property>
    </widget>
   </widget>
